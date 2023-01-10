@@ -16,9 +16,8 @@ To run this project,
 ```
 git clone https://github.com/TeddyMeissner/Diffraction-Integral.git
 ```
-From here the core code can be found in Code/diffraction_code.ipynb. This file contains the implementations of the methods below and takes in the initial condition, Length, Number of points, wavelength, and propagation distance and returns the FFT based solution, Sinc based solution, and has a method to easily creating 3-D plots in Jupyter notebook. An example of using the code may be, 
+From here the core code can be found in Code/diffraction_code. This file contains the implementations of the methods below and takes in the initial condition, Length, Number of points, wavelength, and propagation distance and returns the FFT based solution, Sinc based solution, and has a method to easily creating 3-D plots in Jupyter notebook. An example of using the code may be, 
 ```python
-
 def gaussian(L,N,lam,z):
     dx = L/N
     x = np.linspace(-L/2,L/2-dx,N)
@@ -48,7 +47,7 @@ plt.show()
   <img src="Code/Plots_and_Gifs/Sinc_gauss_snippet.png" width="45%" /> 
 </p>
 
-Where here Irradiance plots $|U|^2$ are shown. 
+Where here Irradiance plots $|U|^2$ are shown. Plots below and in the writeup were made using the code from Code/comparison_plots and Code/plots_and_gifs.  
 
 ## Methods
 ### Spectral Method
