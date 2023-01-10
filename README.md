@@ -11,7 +11,47 @@ Where $k = 2\pi/\lambda$ is the wave number given wavelength $\lambda$, and $\na
 $$U(X,Y) = \frac{-ike^{ikz}}{2\pi z}\int_{-\infty}^\infty\int_{-\infty}^\infty e^{\frac{ik}{2z}((X-x)^2 + (Y-y)^2)}u(x,y) dx dy$$
 where $u(x,y)$ is the initial source and $U(X,Y)$ is the solution at a plane at distance $z$. 
 
-## Spectral Method
+## Using the Code
+To run this project, 
+```
+git clone https://github.com/TeddyMeissner/Diffraction-Integral.git
+```
+From here the core code can be found in Code/diffraction_code.ipynb. This file contains the implementations of the methods below and takes in the initial condition, Length, Number of points, wavelength, and propagation distance and returns the FFT based solution, Sinc based solution, and has a method to easily creating 3-D plots in Jupyter notebook. An example of using the code may be, 
+```python
+
+def gaussian(L,N,lam,z):
+    dx = L/N
+    x = np.linspace(-L/2,L/2-dx,N)
+    y = np.linspace(-L/2,L/2-dx,N)
+    X, Y = np.meshgrid(x, y)
+    w = 1e-2
+    f = np.e**(-(X**2 + Y**2)/(w**2))
+    return f
+
+L,N,lam,z = 1e-1,400,1e-6,1200
+
+initial = gaussian(L,N,lam,z)
+solutions = Diffraction(initial,L,N,lam,z)
+
+plt.imshow(abs(solutions.fft_solution())**2,cmap = 'jet',extent=[-L/2,L/2,-L/2,L/2])
+plt.colorbar()
+plt.title('FFT w/ Gaussian IC, z = ' + str(z))
+plt.show()
+
+plt.imshow(abs(solutions.sinc_solution())**2,cmap = 'jet',extent=[-L/2,L/2,-L/2,L/2] )
+plt.colorbar()
+plt.title('Sinc method w/ Gaussian IC, z = ' + str(z))
+plt.show()
+```
+<p float="left">
+  <img src="Code/Plots_and_Gifs/FFT_gauss_snippet.png" width="45%" />
+  <img src="Code/Plots_and_Gifs/Sinc_gauss_snippet.png" width="45%" /> 
+</p>
+
+Where here Irradiance plots $|U|^2$ are shown. 
+
+## Methods
+### Spectral Method
     
 We first note we can write the Fresnel Diffraction Approximation in terms of a convolution. Let the Fresnel kernel be denoted as, 
 $$h_F(x,y) = \frac{-ike^{ikz}}{2\pi z}e^{\frac{ik}{2z}(x^2 + y^2)}$$
@@ -27,7 +67,7 @@ $$U(X,Y) \approx e^{ikz}\frac{1}{L^2}\sum_{m = -L/2}^{L/2} \sum_{n = -L/2}^{L/2}
 
 Where we can see artificial boundary conditions are imposed and waved reaching the boundary are reintroduced rather than dispersed through infinity. 
 
-## Sinc Based Method
+### Sinc Based Method
 
 The Sinc based method relies on the Shannon-Whittaker sampling theorem. Let $f(x)$ be a band limited function (chopping off the initial condition where we want it to be true 0 outside a certain domain). 
 Then $f$ can be represented exactly by,
@@ -81,11 +121,11 @@ with wavelength $\lambda = 1 \mu m$ and beam radius $w_0 = 1$ cm. The exact solu
   <img src="Code\Plots_and_Gifs\Sinc_gaussian.gif" width="45%" /> 
 </p>
 
-<sub>Figure 3: Gaussian beam shown as $z$ increases. We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
+<sub>Figure 3: Irradiance plots $|U|^2$ of a Gaussian beam shown as $z$ increases. We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
 
 **Figure 4**
 <p float="left">
   <img src="Code/Plots_and_Gifs/FFT_gauss_snippet.png" width="45%" />
   <img src="Code/Plots_and_Gifs/Sinc_gauss_snippet.png" width="45%" /> 
-  <sub> Figure 4: Gaussian beam shown at $z = 1200$ . We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
+  <sub> Figure 4: Irradiance plots $|U|^2$ of a Gaussian beam shown at $z = 1200$ . We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
 </p>
