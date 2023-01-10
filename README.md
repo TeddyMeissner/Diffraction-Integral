@@ -45,13 +45,15 @@ $$\Phi(X,Y) = \int_{-\infty}^\infty\int_{-\infty}^\infty h_f(X - x,Y-y)\textnorm
 Where we use the convolution property of the Fourier Transform  and the fact that the Transform of a sinc function,
 $$\mathcal{F} \left[ \textnormal{ sinc}(\frac{x}{\delta}) \right] (\xi) = \delta \textnormal{ rect}(\delta \xi )$$
 
-Giving us the inverse Fourier transform vanishes outside of the square $-\frac{1}{2}\leq \xi \delta \leq \frac{1}{2}$,$-\frac{1}{2}\leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
+Giving us the inverse Fourier transform vanishes outside of the square $-\frac{1}{2}$  $\leq \xi \delta \leq \frac{1}{2}$,$-\frac{1}{2}\leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
 
 $$\Phi(X,Y) = \delta^2 \int_{-W}^W\int_{-W}^W \hat{h}_f(\xi,\eta)e^{i2\pi(X\xi + Y\eta)}d\xi d\eta$$
 
 Which we can be accurately computed on a chosen domain. We can now rewrite our solution as, 
 $$U(X,Y) = \sum_{n = -{N/2}}^{{N/2}}\sum_{m = -{N/2}}^{N/2} u_{nm} \Phi(X - x_n,Y-y_m)$$
-We can see clearly now the sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discritization. Further, A numerically efficient method for computing the solution and integrals above was solved writing the solution in terms of matrix multiplications for in [] and can be found in [writeup] and code. 
+We can see clearly now the sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discretization. Further, A numerically efficient method for computing the solution and integrals above was solved writing the solution in terms of matrix multiplications for in [] and can be found in [writeup] and code. 
 
-### Findings: 
+## Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated. 
+
+![image](Code/Plots_and_Gifs/FFT_circular_snippet.png) ![image](Code/Plots_and_Gifs/Sinc_circular_snippet.png)
