@@ -61,7 +61,7 @@ In the case of the Fresnel Diffraction Approximation we found the FFT based meth
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%20100.png" width="32%" />
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%20500.png" width="32%" /> 
     <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%201000.png" width="32%" /> 
-    <sub> Figure 1: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at discretization size $\Delta x = 10^{-3}$ . We find here the accuracy of the Sinc method is independent of propagation distance($z$) whereas FFT based method's accuracy reduces with the propagation of distance </sub>
+    <sub> Figure 1: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at discretization size $\Delta x = 10^{-3}$ . We find here the accuracy of the Sinc method is independent of propagation distance( $z$ ) whereas FFT based method's accuracy reduces with the propagation of distance </sub>
 </p>
 
 **Figure 2**
@@ -69,7 +69,7 @@ In the case of the Fresnel Diffraction Approximation we found the FFT based meth
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20L%201e-1%20,%20z%20100.png" width="32%" /> 
 <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20L%201e-1%20,%20z%20500.png" width="32%" /> 
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20L%201e-1%20,%20z%201000.png" width="32%" />
-  <sub>Figure 2: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at length $L = 10^{-1}$. We find here (Similar to figure 1) the accuracy of the Sinc method is independent of propagation distance($z$) whereas FFT based method's accuracy reduces with the propagation of distance. </sub>
+  <sub>Figure 2: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at length $L = 10^{-1}$. We find here (Similar to figure 1) the accuracy of the Sinc method is independent of propagation distance( $z$ ) whereas FFT based method's accuracy reduces with the propagation of distance. </sub>
 </p>
 
 **Figure 3**
