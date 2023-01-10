@@ -62,3 +62,8 @@ In the case of the Fresnel Diffraction Approximation we found the FFT based meth
   <img src="Code/Plots_and_Gifs/FFT_circular_snippet.png" width="350" />
   <img src="Code/Plots_and_Gifs/Sinc_circular_snippet.png" width="350" /> 
 </p>
+
+<p float="left">
+  <img src="Code\Plots_and_Gifs\fft_gaussian.gif" width="350" />
+  <img src="Code\Plots_and_Gifs\Sinc_gaussian.gif" width="350" /> 
+</p>
