@@ -56,6 +56,7 @@ We can see clearly now the Sinc based method never assumes periodic boundary con
 A numerically efficient method is derived in [1] which for conciseness of the paper will not be derived but is used in the creation of the numerical results. The method derived was writing the solution in terms of matrix multiplications, 
 
 $$\boldsymbol{U}_{mn} = e^{ikz} \boldsymbol{w}_{mj}^x \boldsymbol{u}_{jl} (\boldsymbol{w}_{nl}^y)^T$$
+but hello
 $$
 \begin{align*}
     \boldsymbol{U}_{mn} &= U(X_m,Y_n) &
