@@ -43,7 +43,7 @@ To generalize the right hand side (let us assume $\delta = \Delta x,\Delta y$) a
 $$\Phi(X,Y) = \int_{-\infty}^\infty\int_{-\infty}^\infty h_f(X - x,Y-y)\textnormal{ sinc}(\frac{x}{\delta})\textnormal{ sinc}(\frac{y}{\delta})dxdy$$
 
 Where we use the convolution property of the Fourier Transform  and the fact that the Transform of a sinc function,
-$$\mathcal{F}\left[\textnormal{ sinc}(\frac{x}{\delta})\right](\xi) = \delta \textnormal{ rect}(\delta \xi )$$
+$$\mathcal{F} \left[\textnormal{ sinc}(\frac{x}{\delta}) \right](\xi) = \delta \textnormal{ rect}(\delta \xi )$$
 
 Giving us the inverse Fourier transform vanishes outside of the square $-\frac{1}{2}\leq \xi\delta \leq \frac{1}{2}$,$-\frac{1}{2}\leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
 
