@@ -56,4 +56,9 @@ We can see clearly now the sinc based method never assumes periodic boundary con
 ## Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated. 
 
-![image](Code/Plots_and_Gifs/FFT_circular_snippet.png) ![image](Code/Plots_and_Gifs/Sinc_circular_snippet.png)
+<!-- ![image](Code/Plots_and_Gifs/FFT_circular_snippet.png) ![image](Code/Plots_and_Gifs/Sinc_circular_snippet.png) -->
+
+<p float="left">
+  <img src="Code/Plots_and_Gifs/FFT_circular_snippet.png" width="350" />
+  <img src="Code/Plots_and_Gifs/Sinc_circular_snippet.png" width="350" /> 
+</p>
