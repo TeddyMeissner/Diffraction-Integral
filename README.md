@@ -1,4 +1,4 @@
-# Fresnel Diffraction Integral
+# Methods to solving the Fresnel Diffraction Integral
 
 This code focuses on solving the Helmholtz Paraxial equation, a slowly-varying envelope function for monochromatic waves and short-range approximation to the general wave equation. The solution to the Helmholtz Paraxial equation is known as the Fresnel Diffraction approximation. 
 
