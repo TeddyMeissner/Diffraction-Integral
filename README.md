@@ -2,7 +2,7 @@
 
 This code focuses on solving the Helmholtz Paraxial equation, a slowly-varying envelope function for monochromatic waves and short-range approximation to the general wave equation. The solution to the Helmholtz Paraxial equation is known as the Fresnel Diffraction approximation. 
 
-Below is a brief overview of the two methods while a more in depth overview, derivations and references can be found in the [writup](Fresnel_Diffraction_writeup.pdf) and [presentation](Fresnel_diffraction_presentation.pptx). 
+Below is a brief overview of the two methods while a more in depth overview, derivations and references can be found in the [writup](Fresnel_Diffraction_writeup.pdf) and [presentation](Fresnel_diffraction_presentation.pptx). The work below is an extension and implementation of Cubillos et al. [Diffraction integral computation using sinc approximation](https://www.sciencedirect.com/science/article/pii/S0168927422000472).
 
 ## Formulation 
 We are looking to solve the Helmholtz Paraxial equation, 
