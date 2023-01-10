@@ -82,9 +82,9 @@ with wavelength $\lambda = 1 \mu m$ and beam radius $w_0 = 1$ cm. The exact solu
 <p float="left">
   <img src="Code\Plots_and_Gifs\fft_gaussian.gif" width="45%" />
   <img src="Code\Plots_and_Gifs\Sinc_gaussian.gif" width="45%" /> 
-  <sub> Figure 3: Gaussian beam shown as $z$ increases. We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance.  </sub>
 </p>
-
+  <sub> Figure 3: Gaussian beam shown as $z$ increases. We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance.  </sub>
+  
 **Figure 4**
 <p float="left">
   <img src="Code/Plots_and_Gifs/FFT_gauss_snippet.png" width="45%" />
