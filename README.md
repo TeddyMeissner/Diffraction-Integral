@@ -127,5 +127,6 @@ with wavelength $\lambda = 1 \mu m$ and beam radius $w_0 = 1$ cm. The exact solu
 <p float="left">
   <img src="Code/Plots_and_Gifs/FFT_gauss_snippet.png" width="45%" />
   <img src="Code/Plots_and_Gifs/Sinc_gauss_snippet.png" width="45%" /> 
-  <sub> Figure 4: Irradiance plots $|U|^2$ of a Gaussian beam shown at $z = 1200$ . We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
 </p>
+
+<sub> Figure 4: Irradiance plots $|U|^2$ of a Gaussian beam shown at $z = 1200$ . We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
