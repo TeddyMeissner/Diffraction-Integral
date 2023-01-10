@@ -1,5 +1,10 @@
-To describe the propagation of a light beam through a medium one begins with the general wave equation for a Nonlinear Optical Media derived from the Maxwell equations. In this paper we focus on solving the Helmholtz Paraxial equation, a slowly-varying envelope function for monochromatic waves and short-range approximation to the general wave equation. The solution to the Helmholtz Paraxial equation is known as the Fresnel Diffraction approximation. The purpose of this research is to compare the computational accuracy and times of the Fresnel Diffraction approximation using the spectral method (FFT) and a sinc based method. The paper is organized to 1. Introduce the general wave equation for Nonlinear Optical Media, 2. Introduce the Homogenuous Helmholtz equation (Linear medium), 3. Give an overview of the Derivation for the Helmholtz Paraxial equation, 4. Introduce the solution of the Helmholtz Paraxial equation using the spectral and sinc methods, 5. Give numerical results with the initial conditions of a Gaussian Beam and Circular Aperture, 6. Explain the findings of the research. 
+# Fresnel Diffraction Integral
 
+To describe the propagation of a light beam through a medium one begins with the general wave equation for a Nonlinear Optical Media derived from the Maxwell equations. In this paper we focus on solving the Helmholtz Paraxial equation, a slowly-varying envelope function for monochromatic waves and short-range approximation to the general wave equation. The solution to the Helmholtz Paraxial equation is known as the Fresnel Diffraction approximation. 
+
+Below is a brief overview of the two methods while a more in depth overview can be found in the [writup](Fresnel_Diffraction_writeup.pdf) and [presentation](Fresnel_diffraction_presentation.pptx). 
+
+### Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated. 
 
 We are looking to solve the Helmholtz Paraxial equation, 
@@ -7,7 +12,7 @@ $$(2ik\partial_z + \nabla_T^2)\psi(\boldsymbol{r}) = 0$$
 where the solution is known as the Fresnel Diffraction Approximation or integral, 
 $$U(X,Y) = \frac{-ike^{ikz}}{2\pi z}\int_{-\infty}^\infty\int_{-\infty}^\infty e^{\frac{ik}{2z}((X-x)^2 + (Y-y)^2)}u(x,y) dx dy$$
 
-**Spectral Method**
+## Spectral Method
     
 We first note we can write the Fresnel Diffraction Approximation in terms of a convolution. Let the Fresnel kernel be denoted as, 
 $$h_F(x,y) = \frac{-ike^{ikz}}{2\pi z}e^{\frac{ik}{2z}(x^2 + y^2)}$$
@@ -28,7 +33,7 @@ $$U(X,Y) \approx e^{ikz}\frac{1}{L^2}\sum_{m = -L/2}^{L/2} \sum_{n = -L/2}^{L/2}
 
 Where we can see artificial boundary conditions are imposed and waved reaching the boundary are reintroduced rather than dispersed through infinity. 
 
-**Sinc Based Method**
+## Sinc Based Method
 
 Let $f(x)$ be a band limited function (chopping off the initial condition where we want it to be true 0 outside a certain domain). 
 Then $f$ can be represented exactly by,
