@@ -56,12 +56,18 @@ We can see clearly now the sinc based method never assumes periodic boundary con
 ## Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated.
 
+### Plots
+The figures below are generated with the initial condition given as a Gaussian beam, 
+$$u(x,y) = \exp\left(-\frac{x^2 + y^2}{w_0^2}\right)$$
+with wavelength $\lambda = 1 \mu m$ and beam radius $w_0 = 1$ cm. The exact solution can be solved for analytically and is, 
+ $$U(X,Y) = \frac{1}{\sqrt{1 + \left(\frac{2z}{kw_0^2}\right)^2}}\exp\left[ - \frac{1}{w_0^2}\frac{X^2 + Y^2}{1 + \left(\frac{2z}{kw_0^2}\right)^2} + ikz - i\arctan\left(\frac{2z}{kw_0^2}\right) + i\frac{k}{2z}\frac{X^2 + Y^2}{1 + \left(\frac{kw_0^2}{2z}\right)^2}  \right]$$
+
 **Figure 1**
 <p float="left">
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%20100.png" width="32%" />
   <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%20500.png" width="32%" /> 
     <img src="Code/Plots_and_Gifs/Gaussian%20Convergence/fix%20dx%201e-3%20z%20=%201000.png" width="32%" /> 
-    <sub> Figure 1: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at discretization size $\Delta x = 10^{-3}$ . We find here the accuracy of the Sinc method is independent of propagation distance( $z$ ) whereas FFT based method's accuracy reduces with the propagation of distance </sub>
+    <sub> Figure 1: Figure shows the comparison of relative error versus number of points on $N \times N$ grid for three propagation distances $z = 100,500,1000$ m at discretization size $\Delta x = 10^{-3}$ . We find here the accuracy of the Sinc method is independent of propagation distance( $z$ ) whereas FFT based method's accuracy reduces with the propagation of distance. </sub>
 </p>
 
 **Figure 2**
@@ -76,12 +82,12 @@ In the case of the Fresnel Diffraction Approximation we found the FFT based meth
 <p float="left">
   <img src="Code\Plots_and_Gifs\fft_gaussian.gif" width="45%" />
   <img src="Code\Plots_and_Gifs\Sinc_gaussian.gif" width="45%" /> 
-  <sub> </sub>
+  <sub> Figure 3: Gaussian beam shown as $z$ increases. We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance.  </sub>
 </p>
 
 **Figure 4**
 <p float="left">
   <img src="Code/Plots_and_Gifs/FFT_gauss_snippet.png" width="45%" />
   <img src="Code/Plots_and_Gifs/Sinc_gauss_snippet.png" width="45%" /> 
-  <sub> </sub>
+  <sub> Figure 4: Gaussian beam shown at $z = 1200$ . We can see the solution given by FFT (Left) introduces artificial periodic boundaries whereas the sinc based method (Right) maintains accuracy and is dependent on the discritization rather than propagation distance. </sub>
 </p>
