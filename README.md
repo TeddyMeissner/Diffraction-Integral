@@ -34,10 +34,10 @@ Where we can see artificial boundary conditions are imposed and waved reaching t
 The Sinc based method relies on the Shannon-Whittaker sampling theorem. Let $f(x)$ be a band limited function (chopping off the initial condition where we want it to be true 0 outside a certain domain). 
 Then $f$ can be represented exactly by,
 $$f(x) = \sum_{n=-\infty}^\infty f_n \textnormal{ sinc} \left( \frac{x - x_n}{\Delta x}\right)$$
-The full derivation can be found in Shannon's Sampling Theorem. Thus we can rewrite our initial condition as, 
-$$u(x,y) = \sum_{m=-\infty}^\infty\sum_{n=-\infty}^\infty u_{mn} \textnormal{ sinc}\left( \frac{x - x_m}{\Delta x}\right) \textnormal{ sinc}\left( \frac{y - y_n}{\Delta y}\right)$$
+where $x_n = n \Delta x, f_n = f(x_n)$. Thus we can rewrite our initial condition as (first truncating the series for computation), 
+$$u(x,y) = \sum_{m=-{N/2}}^{N/2}\sum_{n=-{N/2}}^{N/2} u_{mn} \textnormal{ sinc}\left( \frac{x - x_m}{\Delta x}\right) \textnormal{ sinc}\left( \frac{y - y_n}{\Delta y}\right)$$
 The solution the Helmholtz Paraxial equation is given by the convolution with the Fresnel kernel $h_f$, 
-$$U(X,Y) = \sum_{m=-\infty}^\infty\sum_{n=-\infty}^\infty u_{mn} \left(h_f \star (\textnormal{ sinc}\left( \frac{x - x_m}{\Delta x}\right) \textnormal{ sinc}\left( \frac{y - y_n}{\Delta y}\right))\right)(X,Y)$$
+$$U(X,Y) = \sum_{m=-{N/2}}^{N/2}\sum_{n=-{N/2}}^{N/2} u_{mn} \left(h_f \star (\textnormal{ sinc}\left( \frac{x - x_m}{\Delta x}\right) \textnormal{ sinc}\left( \frac{y - y_n}{\Delta y}\right))\right)(X,Y)$$
 
 To generalize the right hand side (let us assume $\delta = \Delta x,\Delta y$) and let, 
 $$\Phi(X,Y) = \int_{-\infty}^\infty\int_{-\infty}^\infty h_f(X - x,Y-y)\textnormal{ sinc}(\frac{x}{\delta})\textnormal{ sinc}(\frac{y}{\delta})dxdy$$
@@ -50,31 +50,8 @@ Giving us the inverse Fourier transform vanishes outside of the square $-\frac{1
 $$\Phi(X,Y) = \delta^2 \int_{-W}^W\int_{-W}^W \hat{h}_f(\xi,\eta)e^{i2\pi(X\xi + Y\eta)}d\xi d\eta$$
 
 Which we can be accurately computed on a chosen domain. We can now rewrite our solution as, 
-$$U(X,Y) = \sum_{n = -\infty}^{\infty}\sum_{m = -\infty}^{\infty} u_{nm} \Phi(X - x_n,Y-y_m)$$
-We can see clearly now the Sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discretization   \\
-    
-A numerically efficient method is derived in [1] which for conciseness of the paper will not be derived but is used in the creation of the numerical results. The method derived was writing the solution in terms of matrix multiplications, 
-
-$$\boldsymbol{U}_{mn} = e^{ikz} \boldsymbol{w}_{mj}^x \boldsymbol{u}_{jl} (\boldsymbol{w}_{nl}^y)^T$$
-but hello
-$$
-\begin{align*}
-    \boldsymbol{U}_{mn} &= U(X_m,Y_n) &
-    \boldsymbol{w}_{mj}^x &= \phi(X_m - x_j)\\
-    \boldsymbol{u}_{jl} &= u(x_j,y_l) & 
-    \boldsymbol{w}_{nl}^y &= \phi(Y_n - y_l)
-\end{align*}
-$$
-Where, 
-$$\phi(X) = \frac{\delta}{\pi}\sqrt{\frac{k}{2z}}\exp\left(i\frac{X^2k}{2z}\right)\left(C(\mu_2) - C(\mu_1) - iS(\mu_2) - iS(\mu_1))\right) $$
-$$
-\begin{align*}
-    C(x) &= \int_0^x \cos(\mu^2)d\mu &
-    S(x) &= \int_0^x \sin(\mu^2)d\mu \\
-    \\ \mu_1 &= -\pi\sqrt{\frac{2z}{k}}W - \sqrt{\frac{k}{2z}}X &
-    \mu_1 &= \pi\sqrt{\frac{2z}{k}}W - \sqrt{\frac{k}{2z}}X \\
-\end{align*}
-$$
+$$U(X,Y) = \sum_{n = -{N/2}}^{{N/2}}\sum_{m = -{N/2}}^{N/2} u_{nm} \Phi(X - x_n,Y-y_m)$$
+We can see clearly now the sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discritization. Further, A numerically efficient method for computing the solution and integrals above was solved writing the solution in terms of matrix multiplications for in [] and can be found in [writeup] and code. 
 
 ### Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated. 
