@@ -2,7 +2,7 @@
 
 This code focuses on solving the Helmholtz Paraxial equation, a slowly-varying envelope function for monochromatic waves and short-range approximation to the general wave equation. The solution to the Helmholtz Paraxial equation is known as the Fresnel Diffraction approximation. 
 
-Below is a brief overview of the two methods while a more in depth overview, derivations and references can be found in the [writup](Fresnel_Diffraction_writeup.pdf) and [presentation](Fresnel_diffraction_presentation.pptx). The work below is an extension and implementation of Cubillos et al. [Diffraction integral computation using sinc approximation](https://www.sciencedirect.com/science/article/pii/S0168927422000472).
+Below is a brief overview of the two methods while a more in depth overview, derivations and references can be found in the [writup](Fresnel_Diffraction_writeup.pdf) and [presentation](Fresnel_diffraction_presentation.pptx). The work below is an extension and implementation of Cubillos et al [Diffraction integral computation using sinc approximation](https://www.sciencedirect.com/science/article/pii/S0168927422000472).
 
 ## Formulation 
 We are looking to solve the Helmholtz Paraxial equation, 
@@ -43,7 +43,8 @@ $$\Phi(X,Y) = \int_{-\infty}^\infty\int_{-\infty}^\infty h_f(X - x,Y-y)\textnorm
 Where we use the convolution property of the Fourier Transform  and the fact that the Transform of a sinc function,
 $$\mathcal{F} \left[ \textnormal{ sinc}(\frac{x}{\delta}) \right] (\xi) = \delta \textnormal{ rect}(\delta \xi )$$
 
-Giving us the inverse Fourier transform vanishes outside of the square $-\frac{1}{2}$  $\leq \xi \delta \leq \frac{1}{2}$,$-\frac{1}{2}\leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
+Giving us the inverse Fourier transform vanishes outside of the square, 
+-$\frac{1}{2} \leq \xi\delta \leq \frac{1}{2}$ , -$\frac{1}{2} \leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
 
 $$\Phi(X,Y) = \delta^2 \int_{-W}^W\int_{-W}^W \hat{h}_f(\xi,\eta)e^{i2\pi(X\xi + Y\eta)}d\xi d\eta$$
 
