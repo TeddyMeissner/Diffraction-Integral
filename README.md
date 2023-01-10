@@ -21,10 +21,7 @@ Now recalling the convolution theorem,
 $$\mathcal{F}(h_F\star u)(\xi,\eta) = \hat{h_F}(\xi,\eta)\hat{u}(\xi,\eta)$$
 where the Fourier transform of the Fresnel kernel is,
 $$\hat{h_f}(\xi,\eta) = e^{ikz}\exp\left(\frac{-i2\pi^2z}{k}(\xi^2+\eta^2)\right)$$
-The solution using the inverse Fourier Transform is thus,
-$$U(X,Y) = \mathcal{F}^{-1}[\hat{h_F}\hat{u}]
- = e^{ikz}\int_{-\infty}^\infty \int_{-\infty}^\infty \exp\left(\frac{-i2\pi^2z}{k}(\xi^2+\eta^2)\right)\hat{u}(\xi,\eta) e^{i2\pi(X\xi + Y\eta)}d\xi d\eta$$
- 
+
 As the spectral method approximates the inverse Fourier Transform by the composite trapezoidal rule, $U(X,Y)$ is computed as, 
 $$U(X,Y) \approx e^{ikz}\frac{1}{L^2}\sum_{m = -L/2}^{L/2} \sum_{n = -L/2}^{L/2}  \exp\left(\frac{-i2\pi^2z}{k}(\xi_m^2+\eta_n^2)\right)\hat{u}(\xi_m,\eta_n) e^{i2\pi(X\xi_m + Y\eta_n)}d\xi d\eta$$
 
