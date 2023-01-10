@@ -42,9 +42,7 @@ $$\Phi(X,Y) = \int_{-\infty}^\infty\int_{-\infty}^\infty h_f(X - x,Y-y)\textnorm
 
 Where we use the convolution property of the Fourier Transform  and the fact that the Transform of a sinc function,
 $$\mathcal{F} \left[ \textnormal{ sinc}(\frac{x}{\delta}) \right] (\xi) = \delta \textnormal{ rect}(\delta \xi )$$
-
-Giving us the inverse Fourier transform vanishes outside of the square, 
--$\frac{1}{2} \leq \xi\delta \leq \frac{1}{2}$ , -$\frac{1}{2} \leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
+Giving us the inverse Fourier transform vanishes outside of the square$\frac{1}{2} \leq \xi \delta \leq \frac{1}{2}$ , -$\frac{1}{2} \leq \eta\delta \leq \frac{1}{2}$ thus let $W = \frac{1}{2\delta}$ then, 
 
 $$\Phi(X,Y) = \delta^2 \int_{-W}^W\int_{-W}^W \hat{h}_f(\xi,\eta)e^{i2\pi(X\xi + Y\eta)}d\xi d\eta$$
 
