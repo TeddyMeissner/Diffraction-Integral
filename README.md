@@ -87,7 +87,7 @@ $$\Phi(X,Y) = \delta^2 \int_{-W}^W\int_{-W}^W \hat{h}_f(\xi,\eta)e^{i2\pi(X\xi +
 
 Which we can be accurately computed on a chosen domain. We can now rewrite our solution as, 
 $$U(X,Y) = \sum_{n = -{N/2}}^{{N/2}}\sum_{m = -{N/2}}^{N/2} u_{nm} \Phi(X - x_n,Y-y_m)$$
-We can see clearly now the sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discretization. Further, A numerically efficient method for computing the solution and integrals above was solved writing the solution in terms of matrix multiplications for in [] and can be found in [writeup] and code. 
+We can see clearly now the sinc based method never assumes periodic boundary conditions. Thus the numerical solution will only depend on the fineness of the grid rather than the is propagation distance, wavelength, and observation plane discretization. Further, A numerically efficient method for computing the solution and integrals above was solved writing the solution in terms of matrix multiplications for in [Diffraction integral computation using sinc approximation](https://www.sciencedirect.com/science/article/pii/S0168927422000472) and can be found in [writeup](Fresnel_Diffraction_writeup.pdf) and code. 
 
 ## Findings: 
 In the case of the Fresnel Diffraction Approximation we found the FFT based method introduces artificial periodic boundary conditions and the accuracy of the algorithm depends on propagation distance, wavelength, and observation plane discretization whereas the sinc based method relies on only how well the source field (initial condition) is approximated.
